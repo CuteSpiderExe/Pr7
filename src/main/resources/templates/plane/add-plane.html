@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Plane</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+<form action="/plane/add" method="post">
+    <div th:insert="fragments/header :: defaultheader"></div>
+    <input type="text" id="name" name="name" placeholder="Название"><br>
+
+    <input type="text" id="year" name="year" placeholder="Год выпуска"><br>
+
+    <input type="number" id="price" name="price" placeholder="Цена"><br>
+
+    <input type="number" id="kolvo" name="kolvo" placeholder="Кол-во на складе"><br>
+
+    <input type="number" id="engine" name="engine" placeholder="Мощность в лс."><br>
+    <input type="submit" value="Добавить самолет" class="btn btn-success"><br>
+</form>
+
+<a href="/plane/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

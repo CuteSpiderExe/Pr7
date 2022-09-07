@@ -4,7 +4,9 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+<div th:insert="fragments/header :: defaultheader"></div>
 <body>
+
 <p th:text="${name}" />
 <a href="/calc">Нажми на меня</a><br>
 <a href="/res">Нажми на меня и получишь результат</a><br>

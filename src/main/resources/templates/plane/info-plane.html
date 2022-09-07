@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Plane</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${plane}">
+    <h2 th:text="${el.name}"></h2>
+    <h3 th:text="${el.year}"></h3>
+
+    <p th:text="${el.price}"></p><br>
+
+    <p th:text="${el.kolvo}"></p>
+    <p th:text="${el.engine}"></p>
+    <a th:href="'/plane/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a th:href="'/plane/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/plane/" class="btn btn-primary">Назад к самолетам</a>
+
+</body>
+</html>

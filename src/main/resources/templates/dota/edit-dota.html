@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dota</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${dota}">
+
+    <form th:action="'/dota/edit/' + ${el.id}" method="post">
+        <input type="text" id="name" name="name" placeholder="Название"><br>
+
+        <input type="text" id="tip" name="tip" placeholder="Атрибут"><br>
+
+        <input type="number" id="hp" name="hp" placeholder="Количество здоровья"><br>
+
+        <input type="number" id="mana" name="mana" placeholder="Количество маны"><br>
+
+        <input type="number" id="damage" name="damage" placeholder="Урон"><br>
+        <input type="submit" value="Изменить персонажа" class="btn btn-success"><br>
+    </form>
+
+</div>
+</body>
+</html>

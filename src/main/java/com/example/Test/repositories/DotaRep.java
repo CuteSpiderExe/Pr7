@@ -9,4 +9,5 @@ public interface DotaRep extends CrudRepository<Dota, Long> {
 
 
     public List<Dota> findByNameContains(String name);
+    public List<Dota> findByName(String name);
 }

@@ -8,15 +8,14 @@
 <div th:insert="fragments/header :: defaultheader"></div>
 <div th:each="el : ${dota}">
   <h2 th:text="${el.name}"></h2>
-  <h3 th:text="${el.tip}"></h3>
-
   <p th:text="${el.hp}"></p><br>
-
   <p th:text="${el.mana}"></p>
   <p th:text="${el.damage}"></p>
+  <p th:text="${el.atribut.name}"></p>
+  <p th:text="${el.items.name}"></p>
+  <p th:text="${el.spos.name}"></p>
   <a th:href="'/dota/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
   <a th:href="'/dota/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
-
 </div>
 
 <a href="/dota/" class="btn btn-primary">Назад к героям</a>

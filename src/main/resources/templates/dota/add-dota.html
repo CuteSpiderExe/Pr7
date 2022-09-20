@@ -7,17 +7,41 @@
 <body>
 
 <div th:insert="fragments/header :: defaultheader"></div>
-<form action="/dota/add" method="post">
-
-    <input type="text" id="name" name="name" placeholder="Название"><br>
-
-    <input type="text" id="tip" name="tip" placeholder="Атрибут"><br>
-
-    <input type="number" id="hp" name="hp" placeholder="Количество здоровья"><br>
-
-    <input type="number" id="mana" name="mana" placeholder="Количество маны"><br>
-
-    <input type="number" id="damage" name="damage" placeholder="Урон"><br>
+<form th:object="${dota}" action="/dota/add" method="post">
+<p>Название
+    <input th:field="*{name}" type="text" id="name" name="name" placeholder="Название"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <p>Здоровье
+    <input type="number" th:field="*{hp}" id="hp" name="hp" placeholder="Количество здоровья"><br>
+    <div th:if="${#fields.hasErrors('hp')}" th:errors="*{hp}"></div>
+    </p>
+    <p>Мана
+    <input type="number" th:field="*{mana}" id="mana" name="mana" placeholder="Количество маны"><br>
+    <div th:if="${#fields.hasErrors('mana')}" th:errors="*{mana}"></div>
+    </p>
+    <p>Урог
+    <input type="number" th:field="*{damage}" id="damage" name="damage" placeholder="Урон"><br>
+    <div th:if="${#fields.hasErrors('damage')}" th:errors="*{damage}"></div>
+    </p>
+    <p>Атрибут</p>
+    <select  name="atr" class="btn" >
+        <div th:each="element : ${atribut}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    </select>
+    <p>Способность</p>
+    <select  name="sps" class="btn" >
+        <div th:each="element : ${ssss}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <p>Предмет</p>
+    <select  name="itm" class="btn" >
+        <div th:each="element : ${items}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
     <input type="submit" value="Добавить персонажа" class="btn btn-success"><br>
 </form>
 

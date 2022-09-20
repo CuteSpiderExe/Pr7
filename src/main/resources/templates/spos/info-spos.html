@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spos</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${spos}">
+  <h2 th:text="${el.name}"></h2>
+  <p th:text="${el.damage}"></p>
+  <p th:text="${el.mana}"></p>
+  <a th:href="'/spos/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+  <a th:href="'/spos/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/spos/" class="btn btn-primary">Назад к способностям</a>
+
+</body>
+</html>

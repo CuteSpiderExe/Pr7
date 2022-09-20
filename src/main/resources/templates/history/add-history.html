@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>History</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<form th:object="${history}" action="/history/add" method="post">
+    <p>Название
+        <input th:field="*{name}" type="text" id="name" name="name" placeholder="Название"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <p>Игра</p>
+    <select  name="gm" class="btn" >
+        <div th:each="element : ${game}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <p>Игрок</p>
+    <select  name="pl" class="btn" >
+        <div th:each="element : ${player}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Добавить историю" class="btn btn-success"><br>
+</form>
+
+<a href="/history/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

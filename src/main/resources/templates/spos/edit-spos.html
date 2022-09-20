@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${spos}" th:object="${spos}">
+    <form th:action="'/spos/edit/' + ${el.id}" method="post">
+        <p>Название
+            <input type="text" th:value="${el.name}" th:field="*{name}" id="name" name="name" placeholder="Название"><br>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </p>
+        <p>Урон
+            <input type="number" th:value="${el.damage}" th:field="*{damage}" id="damage" name="damage" placeholder="Урон"><br>
+        <div th:if="${#fields.hasErrors('damage')}" th:errors="*{damage}"></div>
+        </p>
+        <p>Мана
+            <input type="number" th:value="${el.mana}" th:field="*{mana}" id="mana" name="mana" placeholder="Количество маны"><br>
+        <div th:if="${#fields.hasErrors('mana')}" th:errors="*{mana}"></div>
+        </p>
+
+        <input type="submit" value="Изменить способность" class="btn btn-success"><br>
+    </form>
+</div>
+</body>
+</html>

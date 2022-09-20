@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mode</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${mode}">
+  <h2 th:text="${el.name}"></h2>
+
+  <a th:href="'/mode/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+  <a th:href="'/mode/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/mode/" class="btn btn-primary">Назад к режимам</a>
+
+</body>
+</html>

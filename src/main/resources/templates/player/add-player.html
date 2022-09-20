@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Player</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<form th:object="${player}" action="/player/add" method="post">
+    <p>Название
+        <input th:field="*{name}" type="text" id="name" name="name" placeholder="Название"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <p>Персонаж</p>
+    <select  name="dot" class="btn" >
+        <div th:each="element : ${dota}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <p>Звание</p>
+    <select  name="rank" class="btn" >
+        <div th:each="element : ${ranks}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <p>Сервер</p>
+    <select  name="ser" class="btn" >
+        <div th:each="element : ${server}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <p>Режим игры</p>
+    <select  name="mod" class="btn" >
+        <div th:each="element : ${mode}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Добавить игрока" class="btn btn-success"><br>
+</form>
+
+<a href="/player/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

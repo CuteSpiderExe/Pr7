@@ -6,14 +6,27 @@
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <svg class="bi me-2" width="2" height="25" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
                 </a>
+                <ul class="nav col-1 col-lg-auto me-lg-auto mb-1 justify-content-center mb-md-0">
+                    <li><a href="http://localhost:8080" class="nav-link px-4 text-White">Главная</a></li>
+                    <li><a href="http://localhost:8080/admin/" class="nav-link px-4 text-white">Изменить пользователя</a></li>
+                    <li><a href="http://localhost:8080/items/"class="nav-link px-4 text-white">Изменить педметы</a></li>
+                    <li><a href="http://localhost:8080/dota/"class="nav-link px-4 text-white">Изменить персонажа</a></li>
+                    <li><a href="http://localhost:8080/atribut/"class="nav-link px-4 text-white">Изменить атрибут</a></li>
+                    <li><a href="http://localhost:8080/spos/"class="nav-link px-4 text-white">Изменить способности</a></li>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="http://localhost:8080" class="nav-link px-4 text-White">Calculator</a></li>
-                    <li><a href="http://localhost:8080/news/" class="nav-link px-4 text-white">News</a></li>
-                    <li><a href="http://localhost:8080/plane/" class="nav-link px-4 text-white">Plane</a></li>
-                    <li><a href="http://localhost:8080/dota/" class="nav-link px-4 text-white">Dota</a></li>
+
                 </ul>
-
+                </h1>
+                <li><a href="http://localhost:8080/game/"class="nav-link px-4 text-white">Изменить режим</a></li>
+                <li><a href="http://localhost:8080/server/"class="nav-link px-4 text-white">Изменить сервера</a></li>
+                <li><a href="http://localhost:8080/history/"class="nav-link px-4 text-white">Изменить историю</a></li>
+                <li><a href="http://localhost:8080/ranks/"class="nav-link px-4 text-white">Изменить ранги</a></li>
+                <li><a href="http://localhost:8080/player/"class="nav-link px-4 text-white">Изменить игрока</a></li>
+                <li><a href="http://localhost:8080/mode/"class="nav-link px-4 text-white">Изменить режим</a></li>
+                </h1>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
             </div>
         </div>
     </header>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ranks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${ranks}">
+  <h2 th:text="${el.name}"></h2>
+  <p th:text="${el.kol}"></p>
+  <a th:href="'/ranks/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+  <a th:href="'/ranks/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/ranks/" class="btn btn-primary">Назад к рангам</a>
+
+</body>
+</html>

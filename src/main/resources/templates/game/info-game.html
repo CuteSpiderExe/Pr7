@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Game</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${game}">
+  <h2 th:text="${el.name}"></h2>
+  <p th:text="${el.time}"></p>
+  <p th:text="${el.date}"></p>
+  <a th:href="'/game/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+  <a th:href="'/game/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/game/" class="btn btn-primary">Назад к иге</a>
+
+</body>
+</html>

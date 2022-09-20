@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ranks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${ranks}" th:object="${ranks}">
+    <form th:action="'/ranks/edit/' + ${el.id}" method="post">
+        <p>Название
+            <input type="text" th:value="${el.name}" th:field="*{name}" id="name" name="name" placeholder="Название"><br>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </p>
+        <p>Ранг
+            <input type="number" th:value="${el.kol}" th:field="*{kol}" id="kol" name="kol" placeholder="Ранг"><br>
+        <div th:if="${#fields.hasErrors('kol')}" th:errors="*{kol}"></div>
+        </p>
+        <input type="submit" value="Изменить ранг" class="btn btn-success"><br>
+    </form>
+</div>
+</body>
+</html>

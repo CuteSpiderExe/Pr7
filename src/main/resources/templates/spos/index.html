@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spos</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<link rel="stylesheet" href="mysite.css">
+<link rel="stylesheet" href="http://www.htmlbook.ru/main.css">
+<div th:each="el : ${spos}">
+  <h2 th:text="${el.name}"></h2>
+  <h3 th:text="${el.damage}"></h3>
+  <h4 th:text="${el.mana}"></h4>
+  <a th:href="'/spos/' + ${el.id}">Прочитать</a>
+</div>
+<form method="get" action="/spos/search">
+  <input type="text" name="name" id="name">
+  <input type="submit" value="Найти">
+</form>
+<a href="/spos/add" class="btn btn-primary">Добавить способность</a>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${server}">
+  <h2 th:text="${el.name}"></h2>
+  <p th:text="${el.loc}"></p><br>
+
+  <a th:href="'/server/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+  <a th:href="'/server/edit/'+ ${el.id}" class="btn btn-warning">Изменить</a>
+
+</div>
+
+<a href="/server/" class="btn btn-primary">Назад к серверам</a>
+
+</body>
+</html>

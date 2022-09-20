@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${server}" th:object="${server}">
+  <form th:action="'/server/edit/' + ${el.id}" method="post">
+    <p>Название
+      <input type="text" th:value="${el.name}" th:field="*{name}" id="name" name="name" placeholder="Название"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </p>
+    <p>Локация
+      <input type="text" th:value="${el.loc}" th:field="*{loc}" id="loc" name="loc" placeholder="Локация"><br>
+    <div th:if="${#fields.hasErrors('loc')}" th:errors="*{loc}"></div>
+    </p>
+    <input type="submit" value="Изменить сервер" class="btn btn-success"><br>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Game</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:insert="fragments/header :: defaultheader"></div>
+<div th:each="el : ${game}" th:object="${game}">
+    <form th:action="'/game/edit/' + ${el.id}" method="post">
+        <p>Название
+            <input type="text" th:value="${el.name}" th:field="*{name}" id="name" name="name" placeholder="Название"><br>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </p>
+        <p>Время игры
+            <input type="number" th:value="${el.time}" th:field="*{time}" id="time" name="time" placeholder="Время игры"><br>
+        <div th:if="${#fields.hasErrors('hp')}" th:errors="*{time}"></div>
+        </p>
+        <p>Дата игры
+            <input type="text" th:value="${el.date}" th:field="*{date}" id="date" name="date" placeholder="Дата игры"><br>
+        <div th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+        </p>
+        <input type="submit" value="Изменить игру" class="btn btn-success"><br>
+    </form>
+</div>
+</body>
+</html>

@@ -1,28 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dota</title>
+    <title>History</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <div th:insert="fragments/header :: defaultheader"></div>
 <link rel="stylesheet" href="mysite.css">
 <link rel="stylesheet" href="http://www.htmlbook.ru/main.css">
-<div th:each="el : ${dota}">
+<div th:each="el : ${history}">
     <h2 th:text="${el.name}"></h2>
-    <h3 th:text="${el.hp}"></h3>
-    <h4 th:text="${el.mana}"></h4>
-    <h5 th:text="${el.damage}"></h5>
-    <p th:text="${el.atribut.name}"></p>
-    <p th:text="${el.items.name}"></p>
-    <p th:text="${el.spos.name}"></p>
-    <a th:href="'/dota/' + ${el.id}">Прочитать</a>
+    <p th:text="${el.game.id}"></p>
+    <p th:text="${el.player.name}"></p>
+    <a th:href="'/history/' + ${el.id}">Прочитать</a>
 </div>
-<form method="get" action="/dota/search">
+<form method="get" action="/history/search">
     <input type="text" name="name" id="name">
     <input type="submit" value="Найти">
 </form>
-<a href="/dota/add" class="btn btn-primary">Добавить персонажа</a>
+<a href="/history/add" class="btn btn-primary">Добавить историю</a>
 
 </body>
 </html>
